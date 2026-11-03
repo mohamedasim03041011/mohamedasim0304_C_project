@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{
+    FILE *fp;
+    char name[300];
+
+    
+
+    // 1. Writing data into file
+    fp = fopen("ASIM.TXT", "w");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "The C programming course is very useful and informative. The concepts are explained clearly, and practical sessions help me improve my programming skills. I would like to learn more programs and solve real-world problems through coding.");
+
+    fclose(fp);
+
+    printf("Data written successfully\n");
+
+
+    // 2. Appending data into file
+    fp = fopen("ASIM.txt", "a");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    fprintf(fp, "\n after the new sir came it is more understandable and easier");
+
+    fclose(fp);
+
+    printf("Data appended successfully\n");
+
+
+    // 3. Reading data from file
+    fp = fopen("ASIM.txt", "r");
+
+    if (fp == NULL)
+    {
+        printf("File cannot be opened");
+        
+        return;
+    }
+
+    printf("\nFile Contents:\n");
+
+    while (fgets(name, sizeof(name), fp) != NULL)
+    {
+        printf("%s", name);
+    }
+
+    fclose(fp);
+}
